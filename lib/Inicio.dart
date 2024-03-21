@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled1/Crear_cuenta.dart';
 
 class Inicio extends StatelessWidget {
   const Inicio({Key? key});
@@ -76,13 +77,17 @@ class Inicio extends StatelessWidget {
                     fontWeight: FontWeight.normal,
                   ),
                 ),
-                InkWell(
-                  onTap: () {
-                    // Acción a realizar cuando se presiona el texto "Crear cuenta"
-                  },
-                  child: Image.asset(
-                    'lib/pantallas/Crear_cuenta.png',
-                    width: 200, // Ajusta el ancho de la imagen según tu necesidad
+            InkWell(
+              onTap: () {
+                // Redirige a la página de CrearCuenta al presionar "Crear cuenta"
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Crear_cuenta()),
+                );
+              },
+              child: Image.asset(
+                'lib/pantallas/Crear_cuenta.png',
+                width: 200, // Ajusta el ancho de la imagen según tu necesidad
                   ),
                 ),
               ],
