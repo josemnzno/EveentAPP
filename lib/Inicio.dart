@@ -59,11 +59,31 @@ class Inicio extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 50), // Agregamos un espacio entre los campos de entrada y los botones
-                ElevatedButton(
-                  onPressed: () {
-                    // Acción a realizar cuando se presiona el botón de Acceder
+                InkWell(
+                  onTap: () {
+                    // Acción a realizar cuando se presiona la imagen de "Acceder"
                   },
-                  child: Text('Acceder'),
+                  child: Image.asset(
+                    'lib/pantallas/iniciar_sesion.png',
+                    width: 200, // Ajusta el ancho de la imagen según tu necesidad
+                  ),
+                ),
+                SizedBox(height: 50), // Agregamos un espacio entre los botones
+                Text(
+                  '¿No tienes una cuenta?',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    // Acción a realizar cuando se presiona el texto "Crear cuenta"
+                  },
+                  child: Image.asset(
+                    'lib/pantallas/Crear_cuenta.png',
+                    width: 200, // Ajusta el ancho de la imagen según tu necesidad
+                  ),
                 ),
               ],
             ),

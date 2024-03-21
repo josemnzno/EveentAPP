@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pantallas/Inicio.dart'; // Importa la pantalla a la que deseas navegar
+import 'Inicio.dart'; // Importa la pantalla a la que deseas navegar
 
 void main() {
   runApp(MyApp());
