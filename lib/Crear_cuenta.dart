@@ -20,13 +20,40 @@ class Crear_cuenta extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(height: 100),
+                SizedBox(height: 125),
                 Text(
                   'NUEVO USUARIO',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.normal,
+                  ),
+                ),
+                SizedBox(height: 20), // Agregamos un espacio entre el texto y los campos de entrada
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: 'Nombre/s',
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: 'Apellidos',
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
                   ),
                 ),
               ],
