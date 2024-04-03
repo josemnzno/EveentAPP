@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled1/Crear_cuenta.dart';
+import 'package:untitled1/Tipo.dart';
 
 class Inicio extends StatelessWidget {
   const Inicio({Key? key});
@@ -62,6 +63,10 @@ class Inicio extends StatelessWidget {
                 SizedBox(height: 50), // Agregamos un espacio entre los campos de entrada y los botones
                 InkWell(
                   onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Tipo()),
+                    );
                     // Acción a realizar cuando se presiona la imagen de "Acceder"
                   },
                   child: Image.asset(

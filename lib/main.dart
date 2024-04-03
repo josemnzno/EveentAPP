@@ -47,28 +47,33 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             SizedBox(height: 75),
-            DropdownButton<String>(
-              value: selectedLanguage,
-              dropdownColor: Colors.green, // Cambiar el color del cuadro desplegable
-              onChanged: (String? newValue) {
-                if (newValue != null) {
-                  print('Idioma seleccionado: $newValue');
-                  setState(() {
-                    selectedLanguage = newValue;
-                  });
-                }
-              },
-              items: <String>['Español', 'Inglés']
-                  .map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(
-                    value,
-                    style: TextStyle(fontSize: 25), // Tamaño de letra del botón
-                  ),
-                );
-              }).toList(),
+            DropdownButtonHideUnderline(
+              child: DropdownButton<String>(
+                value: selectedLanguage,
+                icon: null, // Esto quitará el icono que aparece junto al menú desplegable
+                dropdownColor: Colors.green, // Cambiar el color del cuadro desplegable
+                onChanged: (String? newValue) {
+                  if (newValue != null) {
+                    print('Idioma seleccionado: $newValue');
+                    setState(() {
+                      selectedLanguage = newValue;
+                    });
+                  }
+                },
+                items: <String>['Español', 'Inglés']
+                    .map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(
+                      value,
+                      style: TextStyle(fontSize: 25), // Tamaño de letra del botón
+                    ),
+                  );
+                }).toList(),
+              ),
             ),
+
+
             SizedBox(height: 50),
             GestureDetector(
               onTap: () {

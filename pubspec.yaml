@@ -34,6 +34,7 @@ flutter:
     - lib/pantallas/fondo2.png
     - lib/pantallas/iniciar_sesion.png
     - lib/pantallas/Crear_cuenta.png
+    - lib/pantallas/lupa.png
 
 
 
