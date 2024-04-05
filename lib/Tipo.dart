@@ -1,7 +1,37 @@
 import 'package:flutter/material.dart';
 
-class Tipo extends StatelessWidget {
-  const Tipo({Key? key});
+class Tipo extends StatefulWidget {
+  const Tipo({Key? key}) : super(key: key);
+
+  @override
+  _TipoState createState() => _TipoState();
+}
+
+class _TipoState extends State<Tipo> {
+  TextEditingController _searchController = TextEditingController();
+  List<String> _events = [
+    'Evento 1',
+    'Evento 2',
+    'Evento 3',
+    'Otro evento 1',
+    'Otro evento 2',
+    'Otro evento 3',
+  ];
+  List<String> _filteredEvents = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _filteredEvents.addAll(_events);
+  }
+
+  void _filterEvents(String searchText) {
+    setState(() {
+      _filteredEvents = _events
+          .where((event) => event.toLowerCase().contains(searchText.toLowerCase()))
+          .toList();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,43 +64,39 @@ class Tipo extends StatelessWidget {
                   child: Row(
                     children: [
                       Expanded(
-                        child: TextFormField(
+                        child: TextField(
+                          controller: _searchController,
                           style: TextStyle(fontSize: 20),
                           decoration: InputDecoration(
-                            hintText: '',
+                            hintText: 'Buscar evento',
                             filled: true,
                             fillColor: Colors.white,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(50),
                             ),
-                            // Centrar el texto dentro del cuadro de texto
-                            contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                            // Alineación del texto dentro del cuadro de texto
-                            hintStyle: TextStyle(
-                              fontSize: 20,
-                            ),
-                            alignLabelWithHint: true,
-                            // Alineación del texto dentro del cuadro de texto
-                            floatingLabelBehavior: FloatingLabelBehavior.auto,
-                            labelText: 'Buscar',
-                            labelStyle: TextStyle(
-                              fontSize: 20,
-                            ),
+                            contentPadding:
+                            EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                           ),
-                        ),
-                      ),
-                      SizedBox(width: 10), // Espacio entre el campo de texto y la imagen
-                      GestureDetector(
-                        onTap: () {
-                          // Acción al hacer clic en la imagen
-                        },
-                        child: Image.asset( 'lib/pantallas/lupa.png', // Ruta de la imagen a utilizar
-                          width: 50, // Ancho de la imagen
-                          height: 50, // Alto de la imagen)
-
+                          onChanged: _filterEvents,
                         ),
                       ),
                     ],
+                  ),
+                ),
+                SizedBox(height: 20),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: _filteredEvents.length,
+                    itemBuilder: (context, index) {
+                      return Card(
+                        child: ListTile(
+                          title: Text(_filteredEvents[index]),
+                          onTap: () {
+                            // Acción al hacer clic en el evento
+                          },
+                        ),
+                      );
+                    },
                   ),
                 ),
               ],
